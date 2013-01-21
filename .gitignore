@@ -15,3 +15,18 @@
 *.exe
 *.out
 *.app
+
+# hidden files but
+.*
+!.gitignore
+
+# swp, log, backup etc.
+*.swp
+*.log
+*.bak
+*~
+tags
+Session.vim
+
+# specific folder
+
