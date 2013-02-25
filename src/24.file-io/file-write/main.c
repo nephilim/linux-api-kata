@@ -27,13 +27,20 @@ int main(int argc, char* argv[])
        char* input = fgets(data, MAX_DATA, stdin);
        // TODO: get rid of 0x0a at the end of string
        check(input != NULL, "Input Error.");
+       int lastpos = strlen(input) - 1;
+       if (input[lastpos] == '\n') {
+           printf("new line char at the end will be removed\n");
+           input[lastpos] = '\0';
+       }
        printf("strlen of '%s': %d\n", input, strlen(input)); 
        int wc = fwrite(data, sizeof(data), 1, file);   
        check(wc == 1, "Write count should be 1, but it is %d", wc);
+       printf("ftell: %ld\n", ftell(file));
    }
    fclose(file);
 
-   // TODO: check the content of 'sample.dat' with od -s (not working) or od -t x1z -A x...
+   // TODO: check the content of 'sample.dat' 
+   // with od -s (not working) or od -t x1z -A x...
    return EXIT_SUCCESS;
 
 error:
