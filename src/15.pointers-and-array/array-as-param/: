@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef char ByteArray[8];
+
+int main(int argc, char* argv[])
+{
+    ByteArray ar;
+    printf("ar is at 0x%x", (int)ar);
+    
+    printf("size as param: %d", get_sizeof(ar));
+    return EXIT_SUCCESS;
+error:
+    return EXIT_FAILURE;
+}
+
+int get_sizeof(int param[]) {
+    return sizeof(param);
+}
